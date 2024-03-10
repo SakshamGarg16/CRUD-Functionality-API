@@ -27,6 +27,7 @@ This project implements a simple Project Management System API using Java 17, Sp
   <li>Run the application using your preferred Java IDE or from the command line:
       <h3>Bash</h3>
       mvn spring-boot:run
+    
   </li>
   <li>The application will start on port 8080 by default (you can configure this in application.properties).</li>
 </ol>
@@ -34,11 +35,11 @@ This project implements a simple Project Management System API using Java 17, Sp
 <h2>Using the API</h2>
 The API provides endpoints for managing projects:
 <ul>
-  <li>Create Project (POST /projects): Creates a new project with provided details.</li>
-  <li>Get All Projects (GET /projects): Retrieves all projects in the system.</li>
-  <li>Get Project by ID (GET /projects/{id}): Retrieves a specific project by its ID.</li>
-  <li>Update Project (PUT /projects/{id}): Updates an existing project with new details.</li>
-  <li>Delete Project (DELETE /projects/{id}): Deletes a project by its ID.</li>
+  <li>Create Project (POST /projects/{UserName}): Creates a new project with provided details.</li>
+  <li>Get All Projects (GET /projects/{UserName}): Retrieves all projects in the system of a particular user.</li>
+  <li>Get Project by ID (GET /projects/{UserName}/{id}): Retrieves a specific project by its ID.</li>
+  <li>Update Project (PUT /projects/{UserName}/{id}): Updates an existing project with new details.</li>
+  <li>Delete Project (DELETE /projects/{UserName}/{id}): Deletes a project by its ID.</li>
 </ul>
 <h3>Note:</h3>You can use tools like Talend, Postman or curl to interact with the API. Refer to the API documentation (generated using Swagger) for detailed information on request and response formats.
 

@@ -22,29 +22,29 @@ import jakarta.validation.Valid;
 public class projectController {
 
 	@Autowired
-	private projectRepository todoo;
+	private projectRepository projects;
 
 	@GetMapping("/projects/{UserName}")
 	public List<Projects> RetriveTodos(@PathVariable String UserName) {
-		return todoo.findByUsername(UserName);
+		return projects.findByUsername(UserName);
 
 	}
 
 	@GetMapping("/projects/{UserName}/{id}")
 	public Projects RetriveSpecificTodos(@PathVariable String UserName, @PathVariable int id) {
-		return todoo.findById(id).get();
+		return projects.findById(id).get();
 
 	}
 
 	@DeleteMapping("/projects/{UserName}/{id}")
 	public ResponseEntity<Void> DeleteSpecificTodos(@PathVariable String UserName, @PathVariable int id) {
-		todoo.deleteById(id);
+		projects.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
 
 	@PutMapping("/projects/{UserName}/{id}")
 	public Projects updateTodos(@PathVariable String UserName, @PathVariable int id, @ModelAttribute("Projects") @Valid Projects project) {
-		todoo.save(project);
+		projects.save(project);
 		return project;
 	}
 
@@ -52,6 +52,6 @@ public class projectController {
 	public Projects addTodos(@PathVariable String UserName, @ModelAttribute("Projects") @Valid Projects project) {
 		project.setUsername(UserName);
 		project.setId(null);
-		return todoo.save(project);
+		return projects.save(project);
 	}
 }
